@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 // MouseLook rotates the transform based on the mouse delta.
@@ -24,12 +24,12 @@ public class MouseLook : MonoBehaviour {
 
 	public float sensitivityHor = 9.0f;
 	public float sensitivityVert = 9.0f;
-
+	
 	public float minimumVert = -45.0f;
 	public float maximumVert = 45.0f;
 
 	private float _rotationX = 0;
-
+	
 	void Start() {
 		// Make the rigid body not change rotation
 		Rigidbody body = GetComponent<Rigidbody>();
@@ -44,7 +44,7 @@ public class MouseLook : MonoBehaviour {
 		else if (axes == RotationAxes.MouseY) {
 			_rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
 			_rotationX = Mathf.Clamp(_rotationX, minimumVert, maximumVert);
-
+			
 			transform.localEulerAngles = new Vector3(_rotationX, transform.localEulerAngles.y, 0);
 		}
 		else {

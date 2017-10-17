@@ -13,16 +13,35 @@ public class enemy2 : MonoBehaviour {
 
 	void Start() {
 		_alive = true;
-		player = GameObject.Find ("player");
+		player = GameObject.Find ("player1");
 	}
 
 	void Update() {
 		if (_alive) {
-			print (Vector3.Distance (player.transform.position, this.transform.position));
-			if (Vector3.Distance (player.transform.position, this.transform.position) > 3) {
+			if(Vector3.Distance(player.transform.position,transform.position) >25) {
+			//	transform.LookAt(player.transform);
 				transform.Translate (0, 0, speed * Time.deltaTime);
-			} else {
-				StartCoroutine (Attack ());
+			
+			}
+			else if (Vector3.Distance (player.transform.position,transform.position) > 3
+			//	&& 
+				//Vector3.Distance (player.transform.position, this.transform.position) < 25
+			) {
+				//Vector3 movement =  new Vector3 (player.transform.eulerAngles.x,player.transform.eulerAngles.y-180 ,player.transform.eulerAngles.z);
+				//transform.eulerAngles = movement;
+				print ("in lookat");
+				//transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+			transform.LookAt(player.transform);
+				transform.Translate (0, 0, speed * Time.deltaTime);
+			} 
+
+			else{
+				print ("in lookat2");
+			//	transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+					transform.LookAt (player.transform);
+				}
+
+				//StartCoroutine (Attack());
 			}
 
 
@@ -30,48 +49,35 @@ public class enemy2 : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.SphereCast(ray,0.75f, out hit)) {
 				GameObject hitObject = hit.transform.gameObject;
-				if (hitObject.GetComponent<PlayerCharacter>()) {
-					
-				}
-				else if (hit.distance < obstacleRange) {
-					//print("hit distance  obstacle range"+hit.distance +" ,"+ obstacleRange);
-					float angle = Random.Range(-110, 110);
-					transform.Rotate(0, angle, 0);
-				}
-					
+				if (!hitObject.GetComponent<PlayerCharacter> ()) {
+					if (hit.distance < obstacleRange) {
+						print ("in obstacle");
+						float angle = Random.Range (-110, 110);
+						transform.Rotate (0, angle, 0);
+					}
+				}	
 			}
-
-
-		//	print (Vector3.Distance(player.transform.position, this.transform.position));
-		//	if ((Mathf.Abs (player.transform.position.x - this.transform.position.x) < 5) || (Mathf.Abs (player.transform.position.z - this.transform.position.z)<5)) {
 				
-			if(Vector3.Distance(player.transform.position, this.transform.position) <25){
-
-
-				Vector3 movement =  new Vector3 (player.transform.eulerAngles.x,player.transform.eulerAngles.y-180 ,player.transform.eulerAngles.z);
-				transform.eulerAngles = movement;
-
-
-
-			} 
-				
-
+			 
 		}
-	}
+
 
 	public void SetAlive(bool alive) {
 		_alive = alive;
 	}
 
-	private IEnumerator Attack(){
-
-	
+	private void Attack(){
 		playercharacter = 	player.GetComponent<PlayerCharacter> ();
-		playercharacter.Hurt (0.1f);
-		yield return new WaitForSeconds(5);
+		playercharacter.Hurt (5f);
+		//yield return new WaitForSeconds(5);
+	}
 
 
-
+	public void playerattacked(){
+	
+		print ("player atatcked");
+		Attack ();
+	
 	}
 
 

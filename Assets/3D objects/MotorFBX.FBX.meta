@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: e6d30fe7043e693449cba922a63b8a2e
+timeCreated: 1507880354
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Box007
+    100002: coil_1
+    100004: Coil_2
+    100006: coil_3
+    100008: current
+    100010: currentholder
+    100012: Cylinder003
+    100014: Magnet_1
+    100016: Magnet_2
+    100018: //RootNode
+    100020: plastic
+    100022: plastic_2
+    100024: Rotor_padshivnik
+    100026: rotorpart
+    100028: RototrHold
+    400000: Box007
+    400002: coil_1
+    400004: Coil_2
+    400006: coil_3
+    400008: current
+    400010: currentholder
+    400012: Cylinder003
+    400014: Magnet_1
+    400016: Magnet_2
+    400018: //RootNode
+    400020: plastic
+    400022: plastic_2
+    400024: Rotor_padshivnik
+    400026: rotorpart
+    400028: RototrHold
+    2300000: Box007
+    2300002: coil_1
+    2300004: Coil_2
+    2300006: coil_3
+    2300008: current
+    2300010: currentholder
+    2300012: Cylinder003
+    2300014: Magnet_1
+    2300016: Magnet_2
+    2300018: //RootNode
+    2300020: plastic
+    2300022: plastic_2
+    2300024: Rotor_padshivnik
+    2300026: rotorpart
+    2300028: RototrHold
+    3300000: Box007
+    3300002: coil_1
+    3300004: Coil_2
+    3300006: coil_3
+    3300008: current
+    3300010: currentholder
+    3300012: Cylinder003
+    3300014: Magnet_1
+    3300016: Magnet_2
+    3300018: //RootNode
+    3300020: plastic
+    3300022: plastic_2
+    3300024: Rotor_padshivnik
+    3300026: rotorpart
+    3300028: RototrHold
+    4300000: Box009
+    4300002: RototrHold
+    4300004: coil_3
+    4300006: Coil_2
+    4300008: coil_1
+    4300010: current
+    4300012: plastic
+    4300014: currentholder
+    4300016: plastic_2
+    4300018: rotorpart
+    4300020: Cylinder003
+    4300022: Box007
+    4300024: Rotor_padshivnik
+    4300026: Magnet_2
+    4300028: Magnet_1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

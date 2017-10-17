@@ -3,21 +3,45 @@ using System.Collections;
 
 public class ReactiveTarget : MonoBehaviour {
 
+	private Animator _animator;
+	private AudioSource source;
+
+	void Start() {
+		source = GetComponent<AudioSource>();
+	}
+
 	public void ReactToHit() {
 		WanderingAI behavior = GetComponent<WanderingAI>();
 		enemy2 behavior2 = GetComponent<enemy2>();
+
+		_animator=this.GetComponent<Animator> ();
 		if (behavior != null) {
 			behavior.SetAlive(false);
+			StartCoroutine(Die());
+		}
+		else if(behavior2 !=null){
+			behavior2.SetAlive(false);
+			StartCoroutine(Die());
 		}
 
-		StartCoroutine(Die());
+
 	}
 
 	private IEnumerator Die() {
-		this.transform.Rotate(-75, 0, 0);
-		
-		yield return new WaitForSeconds(1.5f);
-		
+		source.Play();
+		_animator.SetBool ("hit",true);
+
+		_animator.SetBool ("alive",false);
+
+		//_animator.Play ("Death"); 
+
+		print ("after die");
+		//this.transform.Rotate(-75, 0, 0);
+
+		yield return new WaitForSeconds(4f);
+
+		Messenger.Broadcast("OnEnemyDestroyed");
 		Destroy(this.gameObject);
+
 	}
 }

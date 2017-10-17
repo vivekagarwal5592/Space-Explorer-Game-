@@ -4,63 +4,73 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
-	[SerializeField] private GameObject dragon;
-	[SerializeField] private GameObject zombie;
-	private GameObject _enemy;
-	private GameObject _enemy2;
+	[SerializeField] private GameObject monster1;
+	[SerializeField] private GameObject monster2;
+	//private GameObject _enemy;
 	private List<GameObject> e = new List<GameObject> ();
+	private AudioSource backgroundSound;
+
+	void Start(){
+		backgroundSound = GetComponent<AudioSource>();
+	}
+
+
+	void Awake() {
+//		Messenger.AddListener(GameEvent.ENEMY_HIT,OnEnemyDestroyed());
+		Messenger.AddListener("OnEnemyDestroyed",OnEnemyDestroyed );
+
+	}
+	void OnDestroy() {
+		Messenger.RemoveListener("OnEnemyDestroyed",OnEnemyDestroyed );
+	}
+
 	void Update() {
-		//print ("count:"+e.Count);
-		if (_enemy == null) {
-		//	e.Remove (_enemy);
-//			_enemy = Instantiate(dragon) as GameObject;
-//			_enemy.transform.position = new Vector3(0, 1, 0);
-//			float angle = Random.Range(0, 360);
-//			_enemy.transform.Rotate(0, angle, 0);
 
-		//	if (e.Count <= 15) {
-
-				int x = (int)((Random.value * 4) + 2);
-			//print("x"+x);
-			print ("spwaing enenmy1");
-				for (int i = 2; i <= x; i++) {
-
-						_enemy = Instantiate (dragon) as GameObject;
-					//Vector3 position = new Vector3(Random.Range(-50.0f, 50.0f), 2, Random.Range(-50.0f, 50.0f));
-					_enemy.transform.position = new Vector3(0,1,0);
-								float angle = Random.Range(0, 360);
-								_enemy.transform.Rotate(0, angle, 0);
-
-			//		e.Add (_enemy);
-		//		}
-			}
-
-		}
-		if (_enemy2 == null) {
-			print ("spwaing enenmy2");
-		//	e.Remove (_enemy2);
-			int x = (int)((Random.value * 4) + 2);
-		//	print ("x" + x);
-			for (int i = 2; i <= x; i++) {
-
-				_enemy2 = Instantiate (zombie) as GameObject;
-			//	Vector3 position = new Vector3(Random.Range(-50.0f, 50.0f), 2, Random.Range(-50.0f, 50.0f));
-				_enemy2.transform.position = new Vector3(0,1.7f,0);
-				float angle = Random.Range(0, 360);
-				_enemy2.transform.Rotate(0, angle, 0);
-
-		//		e.Add (_enemy2);
-			}
-		}
-
-
-		if( Input.GetKeyDown("space") )
+		if (!backgroundSound.isPlaying)
 		{
+			backgroundSound.Play();
+		}
+
+		if( Input.GetKeyDown(KeyCode.R) )
+		{
+			print (SceneManager.GetActiveScene().name);
 			SceneManager.LoadScene( SceneManager.GetActiveScene().name );
 		}
 
 
 	}
 
+	public void OnEnemyDestroyed(){
+
+		print ("I am here");
+		int x = (int)((Random.value * 4) + 1);
+
+		for (int i = 1; i <= x; i++) {
+			
+			float monster_type = (Random.value);
+			print (monster_type);
+			if (monster_type > 0.5f) {
+				GameObject	_enemy = new GameObject();
+					_enemy = Instantiate (monster2) as GameObject;
+				Vector3 position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
+			//	Vector3 position = new Vector3(10f,0f,10);
+				_enemy.transform.position = position;
+				float angle = Random.Range (0, 360);
+			//	_enemy.transform.Rotate (0, angle + (1 * 45), 0);
+			} else {
+				GameObject	_enemy2 = new GameObject();
+					_enemy2 = Instantiate (monster1) as GameObject;
+				Vector3 position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
+			//	Vector3 position = new Vector3(10f,0f,10);
+				_enemy2.transform.position = position;
+				float angle = Random.Range (0, 360);
+			//	_enemy2.transform.Rotate (0, angle + (1 * 45), 0);
+
+			}
+				
+
+	
+		}
+	}
 
 }
