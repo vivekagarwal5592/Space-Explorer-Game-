@@ -32,7 +32,7 @@ public class FPSInput : MonoBehaviour {
 		float deltaX = Input.GetAxis ("Horizontal") * speed;
 		float deltaZ = Input.GetAxis("Vertical") * speed;
 		if (Input.GetKey(KeyCode.LeftShift)) {
-			print ("inside if");
+		//	print ("inside if");
 			deltaZ = Input.GetAxis("Vertical") * speed*2;
 			 deltaX = Input.GetAxis ("Horizontal") * speed*2;
 		} 

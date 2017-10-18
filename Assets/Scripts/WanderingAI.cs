@@ -58,24 +58,17 @@ public class WanderingAI : MonoBehaviour {
 
 		}
 
-		if (_alive) {
-
-			}
 
 		if(_fireball != null){
-			Ray fireball_ray = new Ray(_fireball.transform.position, transform.forward);
-			RaycastHit hit_object;
-			if (Physics.SphereCast(fireball_ray, 0.75f, out hit_object)) {
-				GameObject hitObject = hit_object.transform.gameObject;
-				if (hitObject.GetComponent<Camera> ()) {
-					(player.GetComponent<PlayerCharacter> ()).Hurt(2f);;
-				}
-			}
+//			Ray fireball_ray = new Ray(_fireball.transform.position, transform.forward);
+//			RaycastHit hit_object;
+//			if (Physics.SphereCast(fireball_ray, 0.75f, out hit_object)) {
+//				GameObject hitObject = hit_object.transform.gameObject;
+//				if (hitObject.GetComponent<Camera> ()) {
+//					(player.GetComponent<PlayerCharacter> ()).Hurt(2f);;
+//				}
+//			}
 		}
-
-
-
-
 		}
 
 
@@ -93,10 +86,12 @@ public class WanderingAI : MonoBehaviour {
 //		yield return new WaitForSeconds(5);
 	//	print ("in Attack");
 	//	print (_fireball);
+	//	print("in attack");
 		if (_fireball == null) {
+			print ("fireball being shot");
 			_fireball = Instantiate(fireballPrefab) as GameObject;
 			Vector3 p = new Vector3(0,7,1);
-			_fireball.transform.position = transform.TransformPoint(p * 5f);
+			_fireball.transform.position = transform.TransformPoint(p * 1f);
 			_fireball.transform.rotation = transform.rotation;
 
 				}

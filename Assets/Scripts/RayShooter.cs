@@ -42,7 +42,7 @@ public class RayShooter : MonoBehaviour {
 			
 				ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
 				if (target != null) {
-					print ("hit enemy");
+					//print ("hit enemy");
 					target.ReactToHit();
 
 				} 

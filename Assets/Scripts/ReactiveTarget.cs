@@ -35,7 +35,7 @@ public class ReactiveTarget : MonoBehaviour {
 
 		//_animator.Play ("Death"); 
 
-		print ("after die");
+	//	print ("after die");
 		//this.transform.Rotate(-75, 0, 0);
 
 		yield return new WaitForSeconds(4f);

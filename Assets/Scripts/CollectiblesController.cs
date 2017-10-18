@@ -20,7 +20,7 @@ public class CollectiblesController : MonoBehaviour {
 		//		_food  = Instantiate (food2) as GameObject;
 		//		_food  = Instantiate (food3) as GameObject;
 		//		_food  = Instantiate (food4) as GameObject;
-		objects_remaining = 1;
+		objects_remaining = 5;
 		objects.text = "Objects Remaining: " + objects_remaining.ToString();
 
 	}

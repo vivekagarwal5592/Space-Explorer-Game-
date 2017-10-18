@@ -31,7 +31,7 @@ public class SceneController : MonoBehaviour {
 			backgroundSound.Play();
 		}
 
-		if( Input.GetKeyDown(KeyCode.R) )
+		if( Input.GetKeyDown(KeyCode.R	) )
 		{
 			print (SceneManager.GetActiveScene().name);
 			SceneManager.LoadScene( SceneManager.GetActiveScene().name );
@@ -42,16 +42,16 @@ public class SceneController : MonoBehaviour {
 
 	public void OnEnemyDestroyed(){
 
-		print ("I am here");
+		//print ("I am here");
 		int x = (int)((Random.value * 4) + 1);
 
 		for (int i = 1; i <= x; i++) {
 			
 			float monster_type = (Random.value);
-			print (monster_type);
+			//print (monster_type);
 			if (monster_type > 0.5f) {
 				GameObject	_enemy = new GameObject();
-					_enemy = Instantiate (monster2) as GameObject;
+					_enemy = Instantiate (monster1) as GameObject;
 				Vector3 position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
 			//	Vector3 position = new Vector3(10f,0f,10);
 				_enemy.transform.position = position;

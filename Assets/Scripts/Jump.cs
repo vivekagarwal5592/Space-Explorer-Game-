@@ -68,7 +68,7 @@ public class Jump : MonoBehaviour {
 			}
 		}
  		movement.y = _vertSpeed;
-		print (movement);
+		//print (movement);
 		movement *= Time.deltaTime;
 		_charController.Move(movement);
 	}

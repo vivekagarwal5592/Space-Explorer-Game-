@@ -28,9 +28,10 @@ public class PlayerCharacter : MonoBehaviour {
 			_health = 0f;
 			game_over.text = "Game Over";
 			health.text = "Health: " + 0;
+			Time.timeScale = 0; 
 		}
 			
-	//		Time.timeScale = 0; 
+	//		
 
 
 		health.text = "Health: " + _health.ToString();

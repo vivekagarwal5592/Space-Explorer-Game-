@@ -8,10 +8,11 @@ public class enemy2 : MonoBehaviour {
 	public float obstacleRange = 5;
 	private GameObject player;
 	private PlayerCharacter playercharacter;
-
+	private AudioSource[] swordSound;
 	private bool _alive;
 
 	void Start() {
+		swordSound = GetComponents<AudioSource>();
 		_alive = true;
 		player = GameObject.Find ("player1");
 	}
@@ -29,14 +30,14 @@ public class enemy2 : MonoBehaviour {
 			) {
 				//Vector3 movement =  new Vector3 (player.transform.eulerAngles.x,player.transform.eulerAngles.y-180 ,player.transform.eulerAngles.z);
 				//transform.eulerAngles = movement;
-				print ("in lookat");
+			//	print ("in lookat");
 				//transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
 			transform.LookAt(player.transform);
 				transform.Translate (0, 0, speed * Time.deltaTime);
 			} 
 
 			else{
-				print ("in lookat2");
+		//		print ("in lookat2");
 			//	transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
 					transform.LookAt (player.transform);
 				}
@@ -67,6 +68,7 @@ public class enemy2 : MonoBehaviour {
 	}
 
 	private void Attack(){
+		swordSound[1].Play();
 		playercharacter = 	player.GetComponent<PlayerCharacter> ();
 		playercharacter.Hurt (5f);
 		//yield return new WaitForSeconds(5);
@@ -75,7 +77,7 @@ public class enemy2 : MonoBehaviour {
 
 	public void playerattacked(){
 	
-		print ("player atatcked");
+		//print ("player atatcked");
 		Attack ();
 	
 	}
