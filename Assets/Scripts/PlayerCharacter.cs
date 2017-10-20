@@ -22,13 +22,16 @@ public class PlayerCharacter : MonoBehaviour {
 	public void Hurt(float damage) {
 		_health -= damage;
 		//Debug.Log("Health: " + _health);
-		Debug.Log("player being attacked");
+	//	Debug.Log("player being attacked");
 
 		if(_health <=0f){
 			_health = 0f;
 			game_over.text = "Game Over";
 			health.text = "Health: " + 0;
-			Time.timeScale = 0; 
+			//Time.timeScale = 0; 
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			Application.LoadLevel ("scenes/game_over");
 		}
 			
 	//		

@@ -35,26 +35,31 @@ public class WanderingAI : MonoBehaviour {
 			if (distance > 15) {
 				transform.Translate (0, 0, speed * Time.deltaTime);
 
+
+				Ray ray = new Ray(transform.position, transform.forward);
+				RaycastHit hit;
+				if (Physics.SphereCast(ray,0.75f, out hit)) {
+					GameObject hitObject = hit.transform.gameObject;
+					if (!hitObject.GetComponent<PlayerCharacter>()) {
+						if (hit.distance < obstacleRange) {
+							print ("in obstacle");
+							float angle = Random.Range(-110, 110);
+							transform.Rotate(0, angle, 0);
+						}
+					}
+
+				}
+
+
+
 			} else  {
-//				Vector3 movement =  new Vector3 (player.transform.eulerAngles.x,player.transform.eulerAngles.y-180 ,player.transform.eulerAngles.z);
-//				transform.eulerAngles = movement;
+				print ("in else");
 				transform.LookAt (player.transform);
 				Attack ();
 			} 
 
 
-			Ray ray = new Ray(transform.position, transform.forward);
-			RaycastHit hit;
-			if (Physics.SphereCast(ray,0.75f, out hit)) {
-					GameObject hitObject = hit.transform.gameObject;
-				if (!hitObject.GetComponent<PlayerCharacter>()) {
-					if (hit.distance < obstacleRange) {
-						float angle = Random.Range(-110, 110);
-						transform.Rotate(0, angle, 0);
-					}
-				}
 
-			}
 
 		}
 
@@ -88,7 +93,7 @@ public class WanderingAI : MonoBehaviour {
 	//	print (_fireball);
 	//	print("in attack");
 		if (_fireball == null) {
-			print ("fireball being shot");
+		//	print ("fireball being shot");
 			_fireball = Instantiate(fireballPrefab) as GameObject;
 			Vector3 p = new Vector3(0,7,1);
 			_fireball.transform.position = transform.TransformPoint(p * 1f);

@@ -59,7 +59,7 @@ public class SceneController : MonoBehaviour {
 			//	_enemy.transform.Rotate (0, angle + (1 * 45), 0);
 			} else {
 				GameObject	_enemy2 = new GameObject();
-					_enemy2 = Instantiate (monster1) as GameObject;
+					_enemy2 = Instantiate (monster2) as GameObject;
 				Vector3 position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
 			//	Vector3 position = new Vector3(10f,0f,10);
 				_enemy2.transform.position = position;

@@ -8,6 +8,7 @@ public class CollectiblesController : MonoBehaviour {
 	[SerializeField] private GameObject collectible2;
 	[SerializeField] private GameObject collectible3;
 	[SerializeField] private GameObject collectible4;
+	[SerializeField] private GameObject collectible5;
 	GameObject	_collectible;
 	public Text objects;
 	private int objects_remaining;
@@ -47,27 +48,34 @@ public class CollectiblesController : MonoBehaviour {
 
 		if(objects_remaining <=0){
 			youwin.text = "You Win";
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			Application.LoadLevel ("scenes/game_over");
 		}
 
 
 		float collectible_type = (Random.value);
 
-		if (collectible_type > 0.25f) {
+		if (collectible_type < 0.20f) {
 			_collectible = Instantiate (collectible1) as GameObject;
 
-		} else if(collectible_type > 0.5f){
+		} else if(collectible_type < 0.4f){
 			_collectible = Instantiate (collectible2) as GameObject;
 		}
 
-		else if(collectible_type > 0.75f){
+		else if(collectible_type < 0.6f){
 			_collectible = Instantiate (collectible3) as GameObject;
 		}
 
-		else {
+		else if(collectible_type < 0.8f){
 			_collectible = Instantiate (collectible4) as GameObject;
 		}
 
-		_collectible.transform.position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
+		else {
+			_collectible = Instantiate (collectible5) as GameObject;
+		}
+
+		_collectible.transform.position = new Vector3(Random.Range(-98.0f, 98.0f), 1f, Random.Range(-98.0f, 98.0f));
 
 
 	}

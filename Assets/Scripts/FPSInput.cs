@@ -54,7 +54,7 @@ public class FPSInput : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 
-		print ("collsion");
+		//print ("collsion");
 		if(other.gameObject.CompareTag("portal")){
 			Vector3 position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
 			transform.position = position;

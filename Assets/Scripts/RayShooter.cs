@@ -13,7 +13,7 @@ public class RayShooter : MonoBehaviour {
 		_camera = GetComponent<Camera>();
 		source = GetComponent<AudioSource>();
 		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
+	Cursor.visible = false;
 		gun = 1;
 		gunobject1=	GameObject.Find("gun1");
 		gunobject2= GameObject.Find("gun2");

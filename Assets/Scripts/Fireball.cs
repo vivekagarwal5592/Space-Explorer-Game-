@@ -7,7 +7,7 @@ public class Fireball : MonoBehaviour {
 	private System.DateTime object_creation_time ;
 		
 	void Start(){
-		print ("object instatiated");
+	//	print ("object instatiated");
 		object_creation_time = System.DateTime.Now;
 	}
 
