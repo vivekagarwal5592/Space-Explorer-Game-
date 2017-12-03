@@ -40,7 +40,14 @@ public class ReactiveTarget : MonoBehaviour {
 
 		yield return new WaitForSeconds(4f);
 
-		Messenger.Broadcast("OnEnemyDestroyed");
+		if(this.gameObject.GetComponent<enemy2>() != null){
+			Messenger<int>.Broadcast("OnEnemyDestroyed",2);
+		}
+		else{
+			Messenger<int>.Broadcast("OnEnemyDestroyed",1);
+		}
+
+		
 		Destroy(this.gameObject);
 
 	}

@@ -15,6 +15,7 @@ public class FPSInput : MonoBehaviour {
 
 	void Awake() {
 		Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+		source = GetComponent<AudioSource>();
 	//	Messenger.AddListener("OnPlayerAttacked",OnPlayerAttacked );
 	}
 	void OnDestroy() {
@@ -24,10 +25,11 @@ public class FPSInput : MonoBehaviour {
 
 	void Start() {
 		_charController = GetComponent<CharacterController>();
-		source = GetComponent<AudioSource>();
+		
 	}
 	
 	void Update() {
+	//	print("avc");
 		//transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime);
 		float deltaX = Input.GetAxis ("Horizontal") * speed;
 		float deltaZ = Input.GetAxis("Vertical") * speed;
@@ -61,7 +63,7 @@ public class FPSInput : MonoBehaviour {
 		}
 
 		if(other.gameObject.CompareTag("food")){
-			source.Play();
+		//	source.Play();
 			Destroy(other.gameObject);
 			Messenger.Broadcast ("onFoodCollected");
 		}

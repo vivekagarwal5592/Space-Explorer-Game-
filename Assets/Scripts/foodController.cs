@@ -12,10 +12,12 @@ public class foodController : MonoBehaviour {
 	GameObject	_food;
 	private GameObject player;
 	private PlayerCharacter playercharacter;
+	private AudioSource s;
 
 	// Use this for initialization
 	void Start () {
 		_food = new GameObject();
+		s = this.gameObject.GetComponent<AudioSource>();
 //		_food  = Instantiate (food1) as GameObject;
 //		_food  = Instantiate (food2) as GameObject;
 //		_food  = Instantiate (food3) as GameObject;
@@ -42,6 +44,7 @@ public class foodController : MonoBehaviour {
 
 	public void onFoodCollected(){
 
+		s.Play();
 		playercharacter.food_eaten ();
 			float food_type = (Random.value);
 

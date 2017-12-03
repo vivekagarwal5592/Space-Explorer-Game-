@@ -5,10 +5,10 @@ using System.Collections;
 [RequireComponent(typeof(CharacterController))]
 public class Jump : MonoBehaviour {
     public float moveSpeed = 6.0f;
-    public float jumpSpeed = 30.0f;
+    public float jumpSpeed = 15.0f;
 	public float gravity = -9.8f;
 	public float terminalVelocity = -20.0f;
-    public float minFall = -1.5f;
+    public float minFall = -5.5f;
  
 	private float _vertSpeed;
 	private ControllerColliderHit _contact;

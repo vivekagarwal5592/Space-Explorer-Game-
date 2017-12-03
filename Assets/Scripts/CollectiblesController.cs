@@ -9,6 +9,7 @@ public class CollectiblesController : MonoBehaviour {
 	[SerializeField] private GameObject collectible3;
 	[SerializeField] private GameObject collectible4;
 	[SerializeField] private GameObject collectible5;
+	private AudioSource s;
 	GameObject	_collectible;
 	public Text objects;
 	private int objects_remaining;
@@ -16,12 +17,13 @@ public class CollectiblesController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		s = this.gameObject.GetComponent<AudioSource>();
 		_collectible= new GameObject();
 		//		_food  = Instantiate (food1) as GameObject;
 		//		_food  = Instantiate (food2) as GameObject;
 		//		_food  = Instantiate (food3) as GameObject;
 		//		_food  = Instantiate (food4) as GameObject;
-		objects_remaining = 5;
+		objects_remaining = 2;
 		objects.text = "Objects Remaining: " + objects_remaining.ToString();
 
 	}
@@ -42,7 +44,8 @@ public class CollectiblesController : MonoBehaviour {
 
 	public void onCollectibleCollected(){
 
-
+print("onCollectibleCollected");
+		s.Play();
 		objects_remaining -= 1;
 		objects.text = "Objects Remaining: " + objects_remaining.ToString();
 
@@ -50,7 +53,8 @@ public class CollectiblesController : MonoBehaviour {
 			youwin.text = "You Win";
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
-			Application.LoadLevel ("scenes/game_over");
+			PlayerPrefs.SetString("winlose","YOU WIN");
+			Application.LoadLevel ("scenes/scene2");
 		}
 
 
