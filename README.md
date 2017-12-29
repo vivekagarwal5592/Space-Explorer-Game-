@@ -24,11 +24,11 @@ Audience	General
 
 Game Features:
 Player:
-•	Walk: Arrow keys: W A S D
-•	Run: (Arrow keys; W A S D) + Shift
-•	Look Around: Mouse
-•	Jump: Space
-•	Reset: R
+Walk: Arrow keys: W A S D
+Run: (Arrow keys; W A S D) + Shift
+Look Around: Mouse
+Jump: Space
+Reset: R
 Enemy1
 Attack type: Shoot Attack
 Enemy2
