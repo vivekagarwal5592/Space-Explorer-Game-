@@ -16,7 +16,7 @@
 		float distance ;
 		private bool attack_player;
 		[SerializeField] public GameObject blood;
-		private GameObject _blood;
+		//private GameObject _blood;
 
 		void Start() {
 			_animator = GetComponent<Animator>();
@@ -25,21 +25,21 @@
 			player = GameObject.Find ("player1");
 			distance = 0;
 			attack_player = false;
-			_blood = Instantiate(blood) as GameObject;
+		//	_blood = Instantiate(blood) as GameObject;
 
-			_blood.GetComponent<ParticleSystem>().enableEmission = true;
+		//	_blood.GetComponent<ParticleSystem>().enableEmission = true;
 			transform.Find("blood").gameObject.active = false;
 		}
 
 		void Update() {
 			if (_alive) {
-				_blood.transform.position = transform.position;
+			//	_blood.transform.position = transform.position;
 
-			if(!_blood.GetComponent<ParticleSystem>().isPlaying)
-             {
-             	print("blood split");
+			//if(!_blood.GetComponent<ParticleSystem>().isPlaying)
+          //   {
+             //	print("blood split");
               //  _blood.GetComponent<ParticleSystem>().Play();
-             }
+         //    }
 
 
 				updateDistanceFromPlayer();
@@ -80,7 +80,9 @@
 		//	yield return new WaitForSeconds(4f);
 			}
 			else{
+				if(betrayer.GetComponent<WanderingAI>().GetAlive()== true){
 				attack_betrayer(betrayer);
+			}
 			}
 			}
 
@@ -118,7 +120,10 @@
 		}
 
 		public void move_towards_betrayer(){
-			transform.LookAt(betrayer.transform);
+
+			Vector3 target = new Vector3(betrayer.transform.position.x,0,betrayer.transform.position.z);
+
+			transform.LookAt(target);
 			transform.Translate (0, 0, speed * Time.deltaTime);	
 		}
 

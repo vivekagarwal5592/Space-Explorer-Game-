@@ -74,14 +74,14 @@ public class SceneController : MonoBehaviour {
 			else{
 				_enimies_killed += 1;
 				enimies_killed.text = "Enemies Killed: " +  _enimies_killed.ToString();
-				for(int i=0;i<=2;i++){
+				for(int i=0;i<=1;i++){
 					createNewMonster();
 				}
 			}
 		}
 
 
-		if(_enimies_killed >=1){		
+		if(_enimies_killed >=5){		
 			if(scene.name == "scene2"){
 				Messenger.Broadcast ("activateboss");
 			}
@@ -95,7 +95,7 @@ public class SceneController : MonoBehaviour {
 		_enemy2 = Instantiate (monster2) as GameObject;
 		Vector3 position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
 		_enemy2.transform.position = position;
-		float angle = Random.Range (0, 360);
+	//	float angle = Random.Range (0, 360);
 	}
 
 	public void createNewReptile(){
@@ -103,7 +103,7 @@ public class SceneController : MonoBehaviour {
 		_enemy = Instantiate (monster1) as GameObject;
 		Vector3 position = new Vector3(Random.Range(-98.0f, 98.0f), 0, Random.Range(-98.0f, 98.0f));
 		_enemy.transform.position = position;
-		float angle = Random.Range (0, 360);
+		//float angle = Random.Range (0, 360);
 
 	}
 

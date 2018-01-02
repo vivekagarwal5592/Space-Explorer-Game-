@@ -94,7 +94,7 @@ private void Attack(GameObject enemy){
     0, enemy.transform.position.z );
   transform.LookAt (targetPostition);//		playercharacter = 	player.GetComponent<PlayerCharacter> ();
   if (_fireball == null) {	
-  //  fire_bullet(enemy);
+    fire_bullet(enemy);
     }
 }
 
@@ -156,7 +156,7 @@ public void fire_bullet(GameObject enemy){
  _fireball = Instantiate(fireballPrefab) as GameObject;
      Vector3 p = new Vector3(0,7,1);
      _fireball.transform.position = transform.TransformPoint(p * 1f);
-     _fireball.transform.LookAt (enemy.transform);
+     _fireball.transform.LookAt(enemy.transform);
       Physics.IgnoreCollision(_fireball.GetComponent<Collider>(), GetComponent<Collider>());
  
 }
