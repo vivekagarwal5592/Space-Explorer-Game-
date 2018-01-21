@@ -39,3 +39,5 @@ Attack type: Shoot Attack
 Resources
 https://free3d.com/3d-models/fbx
 https://www.assetstore.unity3d.com/en/
+
+Link: https://www.youtube.com/watch?v=XS7zC4AWM_4
